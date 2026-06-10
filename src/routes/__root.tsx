@@ -77,8 +77,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sumit Patel — AI/ML Architect & Backend Developer" },
-      { name: "description", content: "Portfolio of Sumit Patel: AI/ML Architect, Backend Developer, Smart City Innovator." },
+      { title: "Sumit Patel — AI/ML Architect & Fullstack Developer" },
+      { name: "description", content: "Portfolio of Sumit Patel: AI/ML Architect, Fullstack Developer, Software Developer." },
       { name: "author", content: "Sumit Patel" },
       { property: "og:title", content: "Sumit Patel — AI/ML Architect" },
       { property: "og:description", content: "Architecting systems that solve real-world crises with AI." },

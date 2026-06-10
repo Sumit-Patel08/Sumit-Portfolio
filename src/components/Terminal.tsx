@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const lines = [
-  { cmd: "whoami", out: "Sumit Patel — AI/ML Architect && Backend Developer" },
+  { cmd: "whoami", out: "Sumit Patel — AI/ML Architect && Fullstack Developer" },
   { cmd: "skills --list", out: "Python, FastAPI, Next.js, Scikit-learn, Local LLMs, Supabase" },
   { cmd: "status", out: "ONLINE • Building intelligent digital ecosystems ▌" },
 ];

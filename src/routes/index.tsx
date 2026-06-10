@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Sumit Patel — AI/ML Architect" },
-      { name: "description", content: "Portfolio of Sumit Patel — AI/ML Architect, Backend Developer, Smart City Innovator." },
+      { name: "description", content: "Portfolio of Sumit Patel — AI/ML Architect, Fullstack Developer, Software Developer." },
       { property: "og:title", content: "Sumit Patel — AI/ML Architect" },
       { property: "og:description", content: "Architecting intelligent digital ecosystems with AI, FastAPI, and Next.js." },
     ],
@@ -156,10 +156,12 @@ function Index() {
           >
             <div className="relative">
               <div className="absolute -inset-2 rounded-full bg-neon/20 blur-2xl" />
-              <div className="relative h-56 w-56 overflow-hidden rounded-full border-2 border-neon/60 bg-gradient-to-br from-neon/20 to-transparent">
-                <div className="flex h-full w-full items-center justify-center font-mono text-6xl font-bold text-neon">
-                  SP
-                </div>
+              <div className="relative h-56 w-56 overflow-hidden rounded-full border-2 border-neon/60 bg-black">
+                <img
+                  src="/avatar.jpg"
+                  alt="Sumit Patel"
+                  className="h-full w-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                />
               </div>
               <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full border border-border bg-black/80 px-3 py-1.5 backdrop-blur">
                 <span className="relative flex h-2.5 w-2.5">
@@ -185,14 +187,13 @@ function Index() {
                 Sumit <span className="text-neon text-glow">Patel.</span>
               </h1>
               <p className="font-mono mt-4 text-sm text-muted-foreground md:text-base">
-                AI/ML Architect <span className="text-neon">||</span> Backend Developer{" "}
-                <span className="text-neon">||</span> Smart City Innovator{" "}
-                <span className="text-neon">||</span> Tech Storyteller
+                AI/ML Architect <span className="text-neon">||</span> Fullstack Developer{" "}
+                <span className="text-neon">||</span> Software Developer
               </p>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 Architecting systems that solve real-world crises, pushing the boundaries of AI,
                 and bridging the gap between theoretical knowledge and industry-ready
-                implementation. 2nd Year CSE student building intelligent digital ecosystems.
+                implementation. 3rd Year CSE student building intelligent digital ecosystems.
               </p>
             </motion.div>
 
