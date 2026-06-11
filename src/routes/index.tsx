@@ -23,6 +23,7 @@ import { SideNav } from "@/components/SideNav";
 import { TopNav } from "@/components/TopNav";
 import { Terminal } from "@/components/Terminal";
 import { BootLoader } from "@/components/BootLoader";
+import { VideoBackground } from "@/components/VideoBackground";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -138,8 +139,9 @@ function Index() {
   const [bootDone, setBootDone] = useState(false);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
+    <div className="relative min-h-screen overflow-x-hidden text-foreground">
       {!bootDone && <BootLoader onComplete={() => setBootDone(true)} />}
+      <VideoBackground />
       <ParticleBackground />
       <CustomCursor />
       <TopNav />
@@ -163,16 +165,44 @@ function Index() {
                   className="h-full w-full object-cover object-top transition-transform duration-500 hover:scale-105"
                 />
               </div>
-              <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-full border border-border bg-black/80 px-3 py-1.5 backdrop-blur">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-400" />
-                </span>
-                <span className="font-mono text-xs text-foreground">Online</span>
-              </div>
             </div>
-            <div className="font-mono mt-6 flex items-center gap-2 text-xs text-muted-foreground">
-              <MapPin size={12} /> Vadodara, India
+            <div className="flex flex-col items-start mt-6">
+              <div className="font-mono flex items-center gap-2 text-xs text-muted-foreground">
+                <MapPin size={12} /> Vadodara, Gujarat, India
+              </div>
+              <ul className="mt-4 space-y-2 font-mono text-xs text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <span className="text-neon font-bold">•</span>
+                  <a
+                    href="https://github.com/Sumit-Patel08"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition-colors hover:text-neon"
+                  >
+                    GitHub: Sumit-Patel08
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-neon font-bold">•</span>
+                  <a
+                    href="https://linkedin.com/in/sumit-patel-25bb02339"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition-colors hover:text-neon"
+                  >
+                    LinkedIn -  Sumit Patel
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-neon font-bold">•</span>
+                  <a
+                    href="sumit.patel0809@gmail.com"
+                    className="transition-colors hover:text-neon"
+                  >
+                    Gmail: sumit.patel0809@gmail.com
+                  </a>
+                </li>
+              </ul>
             </div>
           </motion.div>
 
@@ -181,6 +211,7 @@ function Index() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
+              className="glass-card rounded-2xl p-6 md:p-8 mb-6 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] border border-white/5 backdrop-blur-[8px]"
             >
               <p className="font-mono mb-3 text-sm text-neon">$ ./initialize_identity --user sumit</p>
               <h1 className="text-5xl font-extrabold leading-[0.95] tracking-tight md:text-7xl">
@@ -245,7 +276,7 @@ function Index() {
         subtitle="A chronology of builds, wins, and lessons."
       >
         <div className="relative mx-auto max-w-3xl">
-          <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-neon/40 to-transparent" />
+          <div className="absolute left-4 md:left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-neon/40 to-transparent" />
           <div className="space-y-12">
             {timeline.map((t, i) => {
               const Icon = t.icon;
@@ -253,20 +284,20 @@ function Index() {
               return (
                 <motion.div
                   key={t.title}
-                  initial={{ opacity: 0, x: left ? -40 : 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.6 }}
-                  className={`relative grid grid-cols-2 gap-8 ${left ? "" : ""}`}
+                  className="relative flex flex-col md:grid md:grid-cols-2 gap-8"
                 >
-                  <div className={left ? "pr-8 text-right" : "col-start-2 pl-8"}>
+                  <div className={`w-full pl-12 md:pl-0 ${left ? "md:pr-8 md:text-right" : "md:col-start-2 md:pl-8"}`}>
                     <div className="glass-card glass-card-hover rounded-xl p-5">
                       <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-neon/80">{t.chapter}</p>
                       <h3 className="mt-2 font-mono text-sm text-neon">{t.title}</h3>
                       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.desc}</p>
                     </div>
                   </div>
-                  <div className="absolute left-1/2 top-6 -translate-x-1/2">
+                  <div className="absolute left-4 md:left-1/2 top-6 -translate-x-1/2">
                     <div className="flex h-10 w-10 items-center justify-center rounded-full border border-neon bg-black shadow-[0_0_20px_var(--neon)]">
                       <Icon size={16} className="text-neon" />
                     </div>

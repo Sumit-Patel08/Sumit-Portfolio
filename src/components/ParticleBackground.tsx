@@ -49,8 +49,7 @@ export function ParticleBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 -z-10 h-full w-full"
-      style={{ background: "radial-gradient(ellipse at top, #0a0a0a 0%, #050505 60%, #000 100%)" }}
+      className="pointer-events-none fixed inset-0 -z-5 h-full w-full"
     />
   );
 }

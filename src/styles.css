@@ -147,14 +147,16 @@
     border-color: var(--color-border);
   }
 
+  html {
+    background: #050505;
+  }
+
   body {
-    background-color: var(--color-background);
+    background: transparent;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     cursor: none;
   }
-
-  html, body { background: #050505; }
 }
 
 @utility font-mono {
