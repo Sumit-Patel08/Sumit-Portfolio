@@ -9,8 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UrbanIntelAiRouteImport } from './routes/urban-intel-ai'
+import { Route as TerraforgeRouteImport } from './routes/terraforge'
+import { Route as MumbaiPulseRouteImport } from './routes/mumbai-pulse'
+import { Route as EunoiaHomoeopathyRouteImport } from './routes/eunoia-homoeopathy'
+import { Route as CoastalThreatRouteImport } from './routes/coastal-threat'
+import { Route as AgriforgeAiRouteImport } from './routes/agriforge-ai'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UrbanIntelAiRoute = UrbanIntelAiRouteImport.update({
+  id: '/urban-intel-ai',
+  path: '/urban-intel-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TerraforgeRoute = TerraforgeRouteImport.update({
+  id: '/terraforge',
+  path: '/terraforge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MumbaiPulseRoute = MumbaiPulseRouteImport.update({
+  id: '/mumbai-pulse',
+  path: '/mumbai-pulse',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EunoiaHomoeopathyRoute = EunoiaHomoeopathyRouteImport.update({
+  id: '/eunoia-homoeopathy',
+  path: '/eunoia-homoeopathy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoastalThreatRoute = CoastalThreatRouteImport.update({
+  id: '/coastal-threat',
+  path: '/coastal-threat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgriforgeAiRoute = AgriforgeAiRouteImport.update({
+  id: '/agriforge-ai',
+  path: '/agriforge-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +55,116 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agriforge-ai': typeof AgriforgeAiRoute
+  '/coastal-threat': typeof CoastalThreatRoute
+  '/eunoia-homoeopathy': typeof EunoiaHomoeopathyRoute
+  '/mumbai-pulse': typeof MumbaiPulseRoute
+  '/terraforge': typeof TerraforgeRoute
+  '/urban-intel-ai': typeof UrbanIntelAiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agriforge-ai': typeof AgriforgeAiRoute
+  '/coastal-threat': typeof CoastalThreatRoute
+  '/eunoia-homoeopathy': typeof EunoiaHomoeopathyRoute
+  '/mumbai-pulse': typeof MumbaiPulseRoute
+  '/terraforge': typeof TerraforgeRoute
+  '/urban-intel-ai': typeof UrbanIntelAiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agriforge-ai': typeof AgriforgeAiRoute
+  '/coastal-threat': typeof CoastalThreatRoute
+  '/eunoia-homoeopathy': typeof EunoiaHomoeopathyRoute
+  '/mumbai-pulse': typeof MumbaiPulseRoute
+  '/terraforge': typeof TerraforgeRoute
+  '/urban-intel-ai': typeof UrbanIntelAiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agriforge-ai'
+    | '/coastal-threat'
+    | '/eunoia-homoeopathy'
+    | '/mumbai-pulse'
+    | '/terraforge'
+    | '/urban-intel-ai'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agriforge-ai'
+    | '/coastal-threat'
+    | '/eunoia-homoeopathy'
+    | '/mumbai-pulse'
+    | '/terraforge'
+    | '/urban-intel-ai'
+  id:
+    | '__root__'
+    | '/'
+    | '/agriforge-ai'
+    | '/coastal-threat'
+    | '/eunoia-homoeopathy'
+    | '/mumbai-pulse'
+    | '/terraforge'
+    | '/urban-intel-ai'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgriforgeAiRoute: typeof AgriforgeAiRoute
+  CoastalThreatRoute: typeof CoastalThreatRoute
+  EunoiaHomoeopathyRoute: typeof EunoiaHomoeopathyRoute
+  MumbaiPulseRoute: typeof MumbaiPulseRoute
+  TerraforgeRoute: typeof TerraforgeRoute
+  UrbanIntelAiRoute: typeof UrbanIntelAiRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/urban-intel-ai': {
+      id: '/urban-intel-ai'
+      path: '/urban-intel-ai'
+      fullPath: '/urban-intel-ai'
+      preLoaderRoute: typeof UrbanIntelAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terraforge': {
+      id: '/terraforge'
+      path: '/terraforge'
+      fullPath: '/terraforge'
+      preLoaderRoute: typeof TerraforgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mumbai-pulse': {
+      id: '/mumbai-pulse'
+      path: '/mumbai-pulse'
+      fullPath: '/mumbai-pulse'
+      preLoaderRoute: typeof MumbaiPulseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eunoia-homoeopathy': {
+      id: '/eunoia-homoeopathy'
+      path: '/eunoia-homoeopathy'
+      fullPath: '/eunoia-homoeopathy'
+      preLoaderRoute: typeof EunoiaHomoeopathyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/coastal-threat': {
+      id: '/coastal-threat'
+      path: '/coastal-threat'
+      fullPath: '/coastal-threat'
+      preLoaderRoute: typeof CoastalThreatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agriforge-ai': {
+      id: '/agriforge-ai'
+      path: '/agriforge-ai'
+      fullPath: '/agriforge-ai'
+      preLoaderRoute: typeof AgriforgeAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +177,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgriforgeAiRoute: AgriforgeAiRoute,
+  CoastalThreatRoute: CoastalThreatRoute,
+  EunoiaHomoeopathyRoute: EunoiaHomoeopathyRoute,
+  MumbaiPulseRoute: MumbaiPulseRoute,
+  TerraforgeRoute: TerraforgeRoute,
+  UrbanIntelAiRoute: UrbanIntelAiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

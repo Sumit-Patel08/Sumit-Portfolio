@@ -2,15 +2,15 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const bootLines = [
-  { text: "> INITIALIZING CORE SYSTEMS...", status: "[ OK ]", delay: 100 },
-  { text: "> LOADING KERNEL MODULES v4.2.1", status: "[ OK ]", delay: 180 },
-  { text: "> MOUNTING VIRTUAL FILESYSTEM", status: "[ OK ]", delay: 140 },
-  { text: "> VERIFYING SECURITY PROTOCOLS", status: "[ OK ]", delay: 200 },
-  { text: "> ESTABLISHING NEURAL UPLINK", status: "[ OK ]", delay: 160 },
-  { text: "> DECRYPTING USER PROFILE: SUMIT_PATEL", status: "[ OK ]", delay: 220 },
-  { text: "> LOADING AI/ML ARCHITECTURE", status: "[ OK ]", delay: 140 },
-  { text: "> COMPILING DEPLOYMENT ASSETS", status: "[ OK ]", delay: 180 },
-  { text: "> RENDERING INTERFACE...", status: "[ DONE ]", delay: 300 },
+  { text: "> gcc main.c portfolio.c -o portfolio -O3", status: "[ OK ]", delay: 100 },
+  { text: "> expanding macros and preprocessing...", status: "[ OK ]", delay: 180 },
+  { text: "> generating assembly and object files...", status: "[ OK ]", delay: 140 },
+  { text: "> linking standard libraries (libc, libm)...", status: "[ OK ]", delay: 200 },
+  { text: "> resolving external dependencies...", status: "[ OK ]", delay: 160 },
+  { text: "> optimizing binaries for target architecture...", status: "[ OK ]", delay: 220 },
+  { text: "> executable 'portfolio' generated successfully.", status: "[ OK ]", delay: 140 },
+  { text: "> verifying memory safety (valgrind)...", status: "[ OK ]", delay: 180 },
+  { text: "> executing ./portfolio...", status: "[ DONE ]", delay: 300 },
 ];
 
 function TypingLine({
@@ -156,10 +156,10 @@ export function BootLoader({ onComplete }: { onComplete: () => void }) {
               className="mb-8 text-center"
             >
               <div className="font-display text-2xl text-foreground sm:text-3xl">
-                SP.SYS
+                GCC.COMPILER
               </div>
               <div className="font-mono mt-1 text-[10px] uppercase tracking-[0.35em] text-muted-foreground">
-                Bootloader v2.0.4 // Secure Mode
+                v14.2.0 // C17 Standard
               </div>
             </motion.div>
 

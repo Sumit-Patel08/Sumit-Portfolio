@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const lines = [
-  { cmd: "whoami", out: "Sumit Patel — AI/ML Architect && Fullstack Developer" },
-  { cmd: "skills --list", out: "Python, FastAPI, Next.js, Scikit-learn, Local LLMs, Supabase" },
-  { cmd: "status", out: "ONLINE • Building intelligent digital ecosystems ▌" },
+  { cmd: "./portfolio.out", out: "Sumit Patel — AI/ML Architect && Fullstack Developer" },
+  { cmd: "cat skills.h", out: "Python, FastAPI, Next.js, Scikit-learn, Local LLMs, Supabase" },
+  { cmd: "./status", out: "ONLINE • Building intelligent digital ecosystems ▌" },
 ];
 
 export function Terminal() {
@@ -43,7 +43,7 @@ export function Terminal() {
         <span className="h-3 w-3 rounded-full bg-red-500/80" />
         <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
         <span className="h-3 w-3 rounded-full bg-green-500/80" />
-        <span className="font-mono ml-3 text-xs text-muted-foreground">sumit@ubuntu: ~</span>
+        <span className="font-mono ml-3 text-xs text-muted-foreground">sumit@c-env: ~</span>
       </div>
       <div className="font-mono space-y-2 p-5 text-sm leading-relaxed">
         {shown.map((l, i) => {
@@ -52,7 +52,7 @@ export function Terminal() {
           return (
             <div key={i}>
               <div>
-                <span className="text-neon">sumit@ubuntu</span>
+                <span className="text-neon">sumit@c-env</span>
                 <span className="text-muted-foreground">:</span>
                 <span className="text-blue-400">~</span>
                 <span className="text-muted-foreground">$ </span>
