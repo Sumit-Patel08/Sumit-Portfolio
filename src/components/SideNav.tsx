@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { Home, Cpu, GitBranch, Rocket } from "lucide-react";
+import { Home, Cpu, GitBranch, Rocket, Trophy, Mail } from "lucide-react";
 
 const items = [
   { id: "home", label: "./home", icon: Home },
   { id: "arsenal", label: "./arsenal", icon: Cpu },
   { id: "chronology", label: "./chronology", icon: GitBranch },
+  { id: "hackathons", label: "./hackathons", icon: Trophy },
   { id: "projects", label: "./deployments", icon: Rocket },
+  { id: "contact", label: "./contact", icon: Mail },
 ];
 
 export function SideNav() {

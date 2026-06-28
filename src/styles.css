@@ -149,6 +149,7 @@
 
   html {
     background: #050505;
+    scroll-behavior: smooth;
   }
 
   body {
