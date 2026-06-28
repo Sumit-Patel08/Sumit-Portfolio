@@ -2,9 +2,11 @@ import { TerminalSquare } from "lucide-react";
 
 const links = [
   { href: "#home", label: "./home" },
-  { href: "#projects", label: "./deployments" },
   { href: "#arsenal", label: "./arsenal" },
   { href: "#chronology", label: "./chronology" },
+  { href: "#hackathons", label: "./hackathons" },
+  { href: "#projects", label: "./deployments" },
+  { href: "#contact", label: "./contact" },
 ];
 
 export function TopNav() {
