@@ -350,7 +350,7 @@ function Index() {
               
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
-                  href="/Sumit_Resume Latex.pdf"
+                  href="/Sumit_Resume_Latex.pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="font-mono flex items-center justify-center gap-2 rounded bg-neon px-6 py-2.5 text-sm font-bold text-black shadow-[0_0_15px_var(--neon)] transition-all hover:bg-neon/80 hover:shadow-[0_0_25px_var(--neon)]"

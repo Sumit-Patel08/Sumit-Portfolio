@@ -208,6 +208,45 @@ function TerraForgePage() {
                 ))}
               </div>
             </motion.section>
+
+            {/* SCREENSHOTS GALLERY */}
+            <motion.section
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="space-y-6"
+            >
+              <h2 className="text-lg font-bold font-mono text-neon px-2">// Platform Preview (Screenshots)</h2>
+              <div className="space-y-6">
+                {[
+                  {
+                    src: "/terraforge-hero.png",
+                    title: "See the Invisible Connections",
+                    desc: "Landing hero tracing how wildfires cascade through air quality, agriculture, livestock, and local economies in real time.",
+                  },
+                  {
+                    src: "/terraforge-features.png",
+                    title: "Built for Decision Makers",
+                    desc: "Platform features grid — geospatial intelligence, causal cascade modeling, what-if simulations, and AI forecasting.",
+                  },
+                ].map((shot, idx) => (
+                  <div key={idx} className="glass-card overflow-hidden rounded-2xl border border-white/5 group">
+                    <div className="overflow-hidden aspect-video relative bg-black/50">
+                      <img
+                        src={shot.src}
+                        alt={shot.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-4 border-t border-white/5 font-mono">
+                      <h3 className="text-xs text-neon uppercase font-semibold">{shot.title}</h3>
+                      <p className="text-[11px] text-muted-foreground mt-1 font-sans">{shot.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.section>
           </div>
         </div>
       </main>
