@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UrbanIntelAiRouteImport } from './routes/urban-intel-ai'
 import { Route as TerraforgeRouteImport } from './routes/terraforge'
+import { Route as SasyaAiRouteImport } from './routes/sasya-ai'
 import { Route as MumbaiPulseRouteImport } from './routes/mumbai-pulse'
 import { Route as EunoiaHomoeopathyRouteImport } from './routes/eunoia-homoeopathy'
 import { Route as CoastalThreatRouteImport } from './routes/coastal-threat'
@@ -25,6 +26,11 @@ const UrbanIntelAiRoute = UrbanIntelAiRouteImport.update({
 const TerraforgeRoute = TerraforgeRouteImport.update({
   id: '/terraforge',
   path: '/terraforge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SasyaAiRoute = SasyaAiRouteImport.update({
+  id: '/sasya-ai',
+  path: '/sasya-ai',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MumbaiPulseRoute = MumbaiPulseRouteImport.update({
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/coastal-threat': typeof CoastalThreatRoute
   '/eunoia-homoeopathy': typeof EunoiaHomoeopathyRoute
   '/mumbai-pulse': typeof MumbaiPulseRoute
+  '/sasya-ai': typeof SasyaAiRoute
   '/terraforge': typeof TerraforgeRoute
   '/urban-intel-ai': typeof UrbanIntelAiRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/coastal-threat': typeof CoastalThreatRoute
   '/eunoia-homoeopathy': typeof EunoiaHomoeopathyRoute
   '/mumbai-pulse': typeof MumbaiPulseRoute
+  '/sasya-ai': typeof SasyaAiRoute
   '/terraforge': typeof TerraforgeRoute
   '/urban-intel-ai': typeof UrbanIntelAiRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/coastal-threat': typeof CoastalThreatRoute
   '/eunoia-homoeopathy': typeof EunoiaHomoeopathyRoute
   '/mumbai-pulse': typeof MumbaiPulseRoute
+  '/sasya-ai': typeof SasyaAiRoute
   '/terraforge': typeof TerraforgeRoute
   '/urban-intel-ai': typeof UrbanIntelAiRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/coastal-threat'
     | '/eunoia-homoeopathy'
     | '/mumbai-pulse'
+    | '/sasya-ai'
     | '/terraforge'
     | '/urban-intel-ai'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/coastal-threat'
     | '/eunoia-homoeopathy'
     | '/mumbai-pulse'
+    | '/sasya-ai'
     | '/terraforge'
     | '/urban-intel-ai'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/coastal-threat'
     | '/eunoia-homoeopathy'
     | '/mumbai-pulse'
+    | '/sasya-ai'
     | '/terraforge'
     | '/urban-intel-ai'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   CoastalThreatRoute: typeof CoastalThreatRoute
   EunoiaHomoeopathyRoute: typeof EunoiaHomoeopathyRoute
   MumbaiPulseRoute: typeof MumbaiPulseRoute
+  SasyaAiRoute: typeof SasyaAiRoute
   TerraforgeRoute: typeof TerraforgeRoute
   UrbanIntelAiRoute: typeof UrbanIntelAiRoute
 }
@@ -135,6 +148,13 @@ declare module '@tanstack/react-router' {
       path: '/terraforge'
       fullPath: '/terraforge'
       preLoaderRoute: typeof TerraforgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sasya-ai': {
+      id: '/sasya-ai'
+      path: '/sasya-ai'
+      fullPath: '/sasya-ai'
+      preLoaderRoute: typeof SasyaAiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mumbai-pulse': {
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   CoastalThreatRoute: CoastalThreatRoute,
   EunoiaHomoeopathyRoute: EunoiaHomoeopathyRoute,
   MumbaiPulseRoute: MumbaiPulseRoute,
+  SasyaAiRoute: SasyaAiRoute,
   TerraforgeRoute: TerraforgeRoute,
   UrbanIntelAiRoute: UrbanIntelAiRoute,
 }

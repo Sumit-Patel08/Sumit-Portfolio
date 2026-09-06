@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { submitContactForm } from "@/lib/api/contact.functions";
+import { rememberHomeScroll, restoreHomeScroll } from "@/lib/home-scroll";
 import {
   Github,
   Linkedin,
@@ -16,10 +17,11 @@ import {
   Building2,
   Leaf,
   Briefcase,
-  Target,
   Medal,
   Flame,
   Send,
+  Code2,
+  BrainCircuit,
 } from "lucide-react";
 import { ParticleBackground } from "@/components/ParticleBackground";
 import { CustomCursor } from "@/components/CustomCursor";
@@ -42,6 +44,13 @@ export const Route = createFileRoute("/")({
 });
 
 const projects = [
+  {
+    title: "Sasya AI",
+    accolade: "Winner • TetraTHON 2026 (Indo-French)",
+    desc: "AI-powered agriculture platform delivering crop advisory, leaf disease detection and market intelligence over live voice calls and WhatsApp.",
+    tags: ["FastAPI", "Next.js", "PyTorch", "Gemini", "Voice AI"],
+    slug: "/sasya-ai",
+  },
   {
     title: "Mumbai Pulse (CityForge)",
     accolade: "Winner • NASA Space Apps 2025",
@@ -86,7 +95,31 @@ const projects = [
   },
 ];
 
-const hackathons = [
+type Hackathon = {
+  title: string;
+  status: string;
+  details: string;
+  project: string;
+  desc: string;
+  team: string;
+  slug: string;
+  type: string;
+  icon: typeof Trophy;
+  onlyInFilter?: string;
+};
+
+const hackathons: Hackathon[] = [
+  {
+    title: "TetraTHON 2026",
+    status: "Winner • 1st Position",
+    details: "INDO-FRENCH INTERNATIONAL • NEOFOLKS × NAVRACHANA UNIVERSITY • 160+ TEAMS",
+    project: "Sasya AI",
+    desc: "AI-powered agriculture platform making advisory accessible to farmers through live voice calling and a WhatsApp chatbot.",
+    team: "Hell Boys • Sumit Patel, Krushit Prajapati, Neel Prajapati, Patel Vrund",
+    slug: "/sasya-ai",
+    type: "Winner",
+    icon: Trophy
+  },
   {
     title: "NASA Space Apps Challenge 2025",
     status: "Winner",
@@ -106,17 +139,6 @@ const hackathons = [
     desc: "Smart City Governance Platform with Hybrid AI Architecture.",
     team: "Hell Boys",
     slug: "/urban-intel-ai",
-    type: "Runner Up",
-    icon: Medal
-  },
-  {
-    title: "IBM AI Innovation Challenge 2026",
-    status: "2nd Rank • Gujarat",
-    details: "IBM × CSRBOX • IHUB AHMEDABAD",
-    project: "AI for Agricultural Ecosystem",
-    desc: "AI solution focused on strengthening India's agricultural ecosystem.",
-    team: "Aryan Buha, Krushit Prajapati, Patel Vrund",
-    slug: "",
     type: "Runner Up",
     icon: Medal
   },
@@ -151,7 +173,8 @@ const hackathons = [
     team: "Team",
     slug: "",
     type: "Finalist",
-    icon: Flame
+    icon: Flame,
+    onlyInFilter: "Finalist"
   },
   {
     title: "HackOut 2025",
@@ -232,10 +255,10 @@ const timeline = [
     desc: "Successfully built and deployed a comprehensive digital solution for Eunoia Homoeopathy. Handled end-to-end development, from UI/UX and performance optimization to domain and hosting setup, establishing a robust online presence for the medical business.",
   },
   {
-    icon: Target,
-    chapter: "08 // The Current Frontier",
-    title: "Eyes on HackBaroda 2026",
-    desc: "Selected for the final round of HackBaroda 2026. Continuing the mission to build impactful, scalable, and intelligent digital ecosystems alongside brilliant teammates.",
+    icon: Trophy,
+    chapter: "08 // Winning on the World Stage",
+    title: "1st Position at TetraTHON 2026",
+    desc: "Won 1st Position with Team Hell Boys at TetraTHON 2026, the Indo-French international hackathon hosted by NeoFolks and Navrachana University, among 160+ competing teams. Built \"Sasya AI,\" an AI-powered agriculture platform that delivers crop advisory, leaf disease detection and Mandi market intelligence to farmers over live voice calls and WhatsApp.",
   },
 ];
 
@@ -255,6 +278,11 @@ function Index() {
     return false;
   });
   const [activeFilter, setActiveFilter] = useState("All");
+
+  // Returning from a case study lands the visitor exactly where they left off.
+  useEffect(() => {
+    restoreHomeScroll();
+  }, []);
 
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -384,6 +412,32 @@ function Index() {
                 AI/ML Architect <span className="text-neon">||</span> Fullstack Developer{" "}
                 <span className="text-neon">||</span> Software Developer
               </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {[
+                  { icon: Trophy, label: "3X Hackathon Winner", accent: true },
+                  { icon: Flame, label: "6X National Finalist", accent: true },
+                  { icon: GraduationCap, label: "3rd Year CSE @ MSU Baroda" },
+                  { icon: Code2, label: "Software Developer" },
+                  { icon: BrainCircuit, label: "AI/ML Enthusiast" },
+                  { icon: Users, label: "Core Team @ Neuralize" },
+                ].map((b) => {
+                  const BIcon = b.icon;
+                  return (
+                    <span
+                      key={b.label}
+                      className={`font-mono flex items-center gap-1.5 rounded-full border px-3 py-1 text-[11px] tracking-wide transition-colors md:text-xs ${
+                        b.accent
+                          ? "border-neon/60 bg-neon/10 text-neon shadow-[0_0_12px_-4px_var(--neon)]"
+                          : "border-border/70 bg-black/40 text-muted-foreground hover:border-neon/50 hover:text-foreground"
+                      }`}
+                    >
+                      <BIcon size={13} className={b.accent ? "text-neon" : "text-neon/70"} />
+                      {b.label}
+                    </span>
+                  );
+                })}
+              </div>
+
               <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 Architecting systems that solve real-world crises, pushing the boundaries of AI,
                 and bridging the gap between theoretical knowledge and industry-ready
@@ -441,7 +495,7 @@ function Index() {
         <div className="relative mx-auto max-w-3xl">
           <div className="absolute left-4 md:left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-neon/40 to-transparent" />
           <div className="space-y-12">
-            {timeline.map((t, i) => {
+            {[...timeline].reverse().map((t, i) => {
               const Icon = t.icon;
               const left = i % 2 === 0;
               return (
@@ -477,11 +531,11 @@ function Index() {
         id="hackathons"
         kicker="// 04"
         title="Hackathons & Achievements"
-        subtitle="From a first idea submission to winning NASA Space Apps and ranking 2nd across Gujarat in IBM's AI challenge."
+        subtitle="From a first idea submission to winning NASA Space Apps and taking 1st Position at the Indo-French TetraTHON 2026."
       >
         <div className="mb-8 flex flex-col gap-4">
           <p className="font-mono text-sm font-semibold text-foreground">
-            <span className="text-neon">9</span> Hackathons - <span className="text-neon">1</span> Win - <span className="text-neon">2</span> Runner Up - <span className="text-neon">3</span> Finalist - <span className="text-muted-foreground">3</span> Participant
+            <span className="text-neon">9</span> Hackathons - <span className="text-neon">2</span> Wins - <span className="text-neon">1</span> Runner Up - <span className="text-neon">3</span> Finalist - <span className="text-muted-foreground">3</span> Participant
           </p>
           <div className="flex flex-wrap gap-3">
             {['All', 'Winner', 'Runner Up', 'Finalist', 'Participant'].map((filter) => (
@@ -506,7 +560,7 @@ function Index() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {hackathons
-            .filter((h) => activeFilter === "All" || h.type === activeFilter)
+            .filter((h) => (activeFilter === "All" || h.type === activeFilter) && (!h.onlyInFilter || h.onlyInFilter === activeFilter))
             .map((h, i) => {
               const Icon = h.icon;
               const cardContent = (
@@ -555,6 +609,7 @@ function Index() {
                   <Link
                     key={h.title}
                     to={h.slug}
+                    onClick={rememberHomeScroll}
                     className="block h-full cursor-pointer"
                   >
                     <motion.article
@@ -626,6 +681,7 @@ function Index() {
                 <Link
                   key={p.title}
                   to={p.slug}
+                  onClick={rememberHomeScroll}
                   className="block h-full cursor-pointer"
                 >
                   <motion.article

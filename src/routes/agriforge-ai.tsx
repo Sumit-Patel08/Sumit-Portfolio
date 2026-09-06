@@ -8,6 +8,7 @@ import {
   Heart,
   CheckCircle2,
 } from "lucide-react";
+import { rememberProjectsSection } from "@/lib/home-scroll";
 import { ParticleBackground } from "@/components/ParticleBackground";
 import { CustomCursor } from "@/components/CustomCursor";
 import { VideoBackground } from "@/components/VideoBackground";
@@ -66,7 +67,7 @@ function AgriForgePage() {
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <Link
             to="/"
-            hash="projects"
+            onClick={rememberProjectsSection}
             className="font-mono flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:text-neon"
           >
             <ArrowLeft size={14} className="text-neon" />
