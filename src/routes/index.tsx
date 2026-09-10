@@ -288,6 +288,15 @@ function Index() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{ type: "success" | "error"; msg: string } | null>(null);
 
+  // A 500 from the RPC layer arrives as `new Error(await response.text())`, so a
+  // stray HTML error page would otherwise be printed into the form verbatim.
+  const readableError = (err: unknown): string => {
+    const raw = err instanceof Error ? err.message : typeof err === "string" ? err : "";
+    const msg = raw.trim();
+    if (!msg || msg.startsWith("<")) return "Something went wrong. Please try again.";
+    return msg;
+  };
+
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -297,7 +306,7 @@ function Index() {
       setSubmitStatus({ type: "success", msg: result.success ? result.message : "Message sent!" });
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (err: any) {
-      setSubmitStatus({ type: "error", msg: err.message || "Something went wrong." });
+      setSubmitStatus({ type: "error", msg: readableError(err) });
     } finally {
       setIsSubmitting(false);
     }
